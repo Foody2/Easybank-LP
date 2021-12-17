@@ -1,0 +1,504 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap");
+
+:root {
+  --dark-blue: hsl(233, 26%, 24%);
+  --lime-green: hsl(136, 65%, 51%);
+  --bright-cyan: hsl(192, 70%, 51%);
+  --grayish-blue: hsl(233, 8%, 62%);
+  --light-grayish-blue: hsl(220, 16%, 96%);
+  --very-light-gray: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+}
+
+*,
+*::before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  font-family: "Public Sans", sans-serif;
+  color: var(--grayish-blue);
+  text-align: center;
+  background: var(--very-light-gray);
+}
+
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3,
+h4 {
+  font-size: 1.2rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 300;
+  color: var(--dark-blue);
+}
+
+p {
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+}
+
+nav {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  position: absolute;
+  z-index: 3;
+}
+
+/* Mobile Navigation */
+
+.trigger {
+  display: none;
+}
+
+.burger {
+  cursor: pointer;
+}
+.burger span {
+  height: 3px;
+  width: 30px;
+  background: var(--dark-blue);
+  display: block;
+  margin-bottom: 4px;
+  position: relative;
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out,
+    opacity 0.5s ease-in-out;
+}
+.trigger:checked ~ .burger span:first-child {
+  transform: rotate(45deg);
+  top: 8px;
+}
+.trigger:checked ~ .burger span:last-child {
+  transform: rotate(-45deg);
+  top: -6px;
+}
+.trigger:checked ~ .burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.desktop-navigation {
+  display: flex;
+  flex-direction: column;
+  color: var(--dark-blue);
+  background: var(--white);
+  height: 30vh;
+  justify-content: space-around;
+  padding-inline: 9rem;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translatex(-50%);
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.trigger:checked ~ .desktop-navigation {
+  opacity: 100%;
+}
+
+.btn-desktop {
+  display: none;
+}
+
+header {
+  position: relative;
+  z-index: 20;
+}
+
+.images {
+  background: url(images/bg-intro-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 1rem;
+}
+
+.hero-image {
+  position: relative;
+  top: -85px;
+  z-index: 2;
+}
+
+.hero-text {
+  margin-top: -7rem;
+}
+
+.hero-text,
+.features-text {
+  padding: 2rem;
+}
+
+header p {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.btn {
+  background: linear-gradient(to right, var(--lime-green), var(--bright-cyan));
+  border: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--white);
+  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  font-family: "Public Sans", sans-serif;
+  margin-bottom: 3rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(to right, var(--bright-cyan), var(--lime-green));
+  transition: ease-in 0.3s;
+}
+
+.features {
+  background: var(--light-grayish-blue);
+  padding-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.features h3,
+article h4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-areas:
+    "title"
+    "card-online-banking"
+    "card-simple-budgeting"
+    "card-fast-onboarding"
+    "card-open-api";
+}
+
+.card {
+  padding: 2rem;
+}
+.news {
+  padding-bottom: 5rem;
+  display: grid;
+  grid-template-areas:
+    "title"
+    "one"
+    "two"
+    "three"
+    "four";
+  justify-content: center;
+}
+
+.news-text {
+  grid-area: title;
+}
+
+.news h2 {
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+}
+
+article {
+  padding: 1rem;
+}
+
+article img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+article .article-text {
+  padding-inline: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  text-align: left;
+  background: var(--white);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  max-width: 600px;
+}
+article h4:hover {
+  color: var(--lime-green);
+}
+
+article p {
+  font-size: 0.85rem;
+}
+
+article .name {
+  font-size: 0.6rem;
+  text-align: left;
+}
+
+footer {
+  background: var(--dark-blue);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+footer .logo {
+  padding-bottom: 2rem;
+}
+
+path {
+  fill: var(--white);
+}
+
+path:hover {
+  fill: var(--lime-green);
+}
+
+.footer-nav ul li,
+.footer-nav-legal ul li {
+  padding-bottom: 1rem;
+}
+
+.footer-nav ul li a,
+.footer-nav-legal ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.footer-nav ul li a:hover,
+.footer-nav-legal ul li a:hover {
+  color: var(--lime-green);
+}
+
+.social-icons {
+  cursor: pointer;
+  padding-bottom: 1rem;
+}
+
+.social-icons svg:not(:first-of-type) {
+  margin-left: 1rem;
+}
+
+.copy-right {
+  padding-top: 2rem;
+}
+
+footer .btn {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 53.75em) {
+  header {
+    width: 100%;
+  }
+
+  header img {
+    margin: auto;
+  }
+  .images {
+    background: url(images/bg-intro-desktop.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top -250px right -350px;
+  }
+
+  .features {
+    padding: 5rem 5rem;
+  }
+
+  .features-text {
+    text-align: left;
+  }
+
+  .cards {
+    grid-template-areas:
+      "title title"
+      "card-online-banking card-simple-budgeting"
+      "card-fast-onboarding card-open-api";
+    text-align: left;
+  }
+
+  .news {
+    grid-template-areas:
+      "title title"
+      "one two"
+      "three four";
+    grid-auto-columns: 1fr;
+    gap: 1.5rem;
+    text-align: left;
+    padding: 5rem 7rem;
+  }
+
+  .news h2 {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  article {
+    padding: 0rem;
+  }
+}
+
+@media (min-width: 70em) {
+  header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 35%;
+    padding-left: 7rem;
+    padding-top: 0rem;
+  }
+
+  .images {
+    order: 2;
+  }
+
+  .mobile-navigation {
+    display: none;
+  }
+
+  .desktop-navigation {
+    opacity: 100%;
+    top: 15px;
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+  }
+  .btn-desktop {
+    display: flex;
+    margin-bottom: 0rem;
+  }
+
+  nav {
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 7rem;
+  }
+
+  .nav-links {
+    list-style: none;
+  }
+  .nav-links li {
+    display: table-cell;
+    position: relative;
+    padding: 10px 15px;
+    color: var(--grayish-blue);
+  }
+  .nav-links li:hover {
+    color: var(--dark-blue);
+  }
+
+  .nav-links li:after {
+    background: none repeat scroll 0 0 transparent;
+    top: 55px;
+    content: "";
+    display: block;
+    height: 4px;
+    left: 50%;
+    position: absolute;
+    background: linear-gradient(
+      to right,
+      var(--lime-green),
+      var(--bright-cyan)
+    );
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+
+  li:hover:after {
+    width: 100%;
+    left: 0;
+  }
+
+  .features {
+    margin-top: -325px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .features p {
+    max-width: 60ch;
+    padding-top: 2rem;
+  }
+
+  .cards {
+    grid-template-areas:
+      ". title title . "
+      "card-online-banking card-simple-budgeting card-fast-onboarding card-open-api";
+  }
+
+  .news {
+    grid-template-areas:
+      "title title title title"
+      "one two three four";
+  }
+
+  footer {
+    display: grid;
+    grid-template-areas: "social footer-nav footer-nav-legal empty copyright";
+    justify-content: space-around;
+    text-align: left;
+    padding-inline: 4rem;
+  }
+
+  .social-icons {
+    padding-top: 1rem;
+  }
+
+  .social-icons path:hover {
+    fill: var(--lime-green);
+  }
+
+  footer .btn {
+    margin-bottom: 1rem;
+  }
+
+  .copy-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-end;
+    padding-top: 1rem;
+  }
+}
